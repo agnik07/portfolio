@@ -3,7 +3,6 @@
 ## 🚀 Overview
 This is a modern, responsive personal portfolio website built with React.js. It showcases my projects, skills, resume, and contact information with smooth animations and interactive elements.
 
-![Portfolio Screenshot](src/Assets/home-bg.jpg)
 
 ## ✨ Features
 - **Animated Home Section** with typewriter effect and particles background
