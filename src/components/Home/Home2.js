@@ -1,114 +1,112 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.png";
-import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
 
 function Home2() {
   return (
-    <Container fluid className="home-about-section" id="about">
+    <section className="editorial-section" id="statement">
       <Container>
-        <Row>
-          <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
-            </h1>
-            <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
-              <br />
-              <br />I am fluent in classics like
-              <i>
-                <b className="purple"> python, MySQL. </b>
-              </i>
-              <br />
-              <br />
-              My field of Interest's are building new &nbsp;
-              <i>
-                <b className="purple">Turning Data into Intelligence with the Right Algorithm. </b> and
-                also in areas related to{" "}
-                <b className="purple">
-                  Datasets.
-                </b>
-              </i>
-              <br />
-              <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
-              <i>
-                <b className="purple">
-                  {" "}
-                  Modern Javascript Library and Frameworks
-                </b>
-              </i>
-              &nbsp; like
-              <i>
-                <b className="purple"> React.js and Next.js</b>
-              </i>
-            </p>
+        
+        {/* Section 01 — Philosophy */}
+        <div className="section-num">01 // PHILOSOPHY & PERSPECTIVE</div>
+        <Row className="mb-5">
+          <Col lg={6} md={12}>
+            <h2 className="editorial-quote-statement">
+              "Technology is most compelling when engineered into reliable systems that people rely on every single day."
+            </h2>
           </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+          <Col lg={6} md={12} className="mt-4 mt-lg-0">
+            <p className="editorial-narrative-p">
+              My engineering approach is grounded in simplicity and depth. Whether designing natural language parsers, architecting robust backend services, or optimizing relational databases, I focus on building systems that solve practical problems cleanly.
+            </p>
+            <p className="editorial-narrative-p">
+              Currently pursuing my B.Tech in Computer Science and Engineering at SRMIST, I actively explore the intersection of machine learning algorithms, scalable backend architectures, and autonomous software workflows.
+            </p>
+            
+            <div className="mt-4">
+              <Link to="/about" className="btn-editorial-link">
+                Read full profile & toolkit <FiArrowRight />
+              </Link>
+            </div>
           </Col>
         </Row>
-        <Row>
-          <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
-            <p>
-              Feel free to <span className="purple">connect </span>with me
+
+        {/* Metadata Strip */}
+        <div className="editorial-metadata-grid mb-5">
+          <div>
+            <div className="metadata-label">Education</div>
+            <div className="metadata-value">SRMIST · B.Tech CSE</div>
+          </div>
+          <div>
+            <div className="metadata-label">Location</div>
+            <div className="metadata-value">India (Kolkata / Chennai)</div>
+          </div>
+          <div>
+            <div className="metadata-label">Specialization</div>
+            <div className="metadata-value">AI, Data Systems & Backend</div>
+          </div>
+          <div>
+            <div className="metadata-label">Current Status</div>
+            <div className="metadata-value">Available for Opportunities</div>
+          </div>
+        </div>
+
+        <div className="editorial-divider"></div>
+
+        {/* Section 02 — Focus Pillars */}
+        <div className="section-num">02 // WHAT I LIKE BUILDING</div>
+        <h2 className="editorial-heading mb-4">Core Engineering Pillars</h2>
+        
+        <div className="focus-pillars-grid">
+          <div className="focus-pillar-card">
+            <div className="pillar-num">01 / INTELLIGENCE</div>
+            <h3 className="pillar-title">AI & Data Systems</h3>
+            <p className="pillar-desc">
+              Building predictive models, NLP parsers, and intelligent recommendation pipelines that extract actionable signal from complex datasets.
             </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/agnik07"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              {/* <li className="social-icons">
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li> */}
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/agnik-dutta/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.instagram.com/myself_agnik/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillInstagram />
-                </a>
-              </li>
-            </ul>
-          </Col>
-        </Row>
+          </div>
+
+          <div className="focus-pillar-card">
+            <div className="pillar-num">02 / BACKEND</div>
+            <h3 className="pillar-title">Backend & Cloud Systems</h3>
+            <p className="pillar-desc">
+              Developing performant, modular server architectures with Node.js, Express, RESTful APIs, and structured relational databases like MySQL and PostgreSQL.
+            </p>
+          </div>
+
+          <div className="focus-pillar-card">
+            <div className="pillar-num">03 / AUTOMATION</div>
+            <h3 className="pillar-title">Workflow Automation</h3>
+            <p className="pillar-desc">
+              Designing smart business logic and process orchestration engines that remove repetitive administrative bottlenecks.
+            </p>
+          </div>
+
+          <div className="focus-pillar-card">
+            <div className="pillar-num">04 / ALGORITHMS</div>
+            <h3 className="pillar-title">Systems & Architecture</h3>
+            <p className="pillar-desc">
+              Applying clean object-oriented design and efficient algorithmic data structures in C++, Java, and Python for robust reliability.
+            </p>
+          </div>
+        </div>
+
+        {/* CTA Bar */}
+        <div className="mt-5 pt-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+          <div>
+            <span className="eyebrow" style={{ marginBottom: "0" }}>CURATED CASE STUDIES</span>
+            <div style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}>
+              Explore end-to-end applications in AI, commerce, and human resources.
+            </div>
+          </div>
+          <Link to="/project" className="btn-editorial-primary">
+            View All Selected Work <FiArrowRight />
+          </Link>
+        </div>
       </Container>
-    </Container>
+    </section>
   );
 }
+
 export default Home2;

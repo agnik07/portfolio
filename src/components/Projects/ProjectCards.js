@@ -1,40 +1,47 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
+import { FiGithub, FiExternalLink, FiArrowUpRight } from "react-icons/fi";
 
 function ProjectCards(props) {
   return (
-    <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
-        </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
+    <div className="focus-pillar-card" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+      <div style={{ width: "100%", height: "200px", overflow: "hidden", marginBottom: "1.2rem", borderRadius: "2px", border: "1px solid var(--border-subtle)" }}>
+        <img
+          src={props.imgPath}
+          alt={props.title}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </div>
+      
+      <div className="pillar-num">{props.category || "PROJECT"}</div>
+      <h3 className="pillar-title" style={{ fontSize: "1.2rem" }}>{props.title}</h3>
+      <p className="pillar-desc" style={{ flexGrow: 1, fontSize: "0.88rem" }}>
+        {props.description}
+      </p>
 
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
-
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
+      <div style={{ display: "flex", gap: "1rem", marginTop: "1.2rem", paddingTop: "1rem", borderTop: "1px solid var(--border-subtle)" }}>
+        <a
+          href={props.ghLink}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-editorial-link"
+          style={{ fontSize: "0.78rem" }}
+        >
+          <FiGithub /> Code <FiArrowUpRight />
+        </a>
+        {props.demoLink && (
+          <a
             href={props.demoLink}
             target="_blank"
-            style={{ marginLeft: "10px" }}
+            rel="noreferrer"
+            className="btn-editorial-link"
+            style={{ fontSize: "0.78rem", color: "var(--accent-burgundy-light)" }}
           >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
+            <FiExternalLink /> Demo <FiArrowUpRight />
+          </a>
         )}
-      </Card.Body>
-    </Card>
+      </div>
+    </div>
   );
 }
+
 export default ProjectCards;

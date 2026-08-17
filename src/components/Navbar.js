@@ -1,112 +1,122 @@
-import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { FiArrowUpRight } from "react-icons/fi";
 
 function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-  window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location]);
 
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
+    <header className={`navbar-editorial ${scrolled ? "scrolled" : ""}`}>
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
+          {/* Brand Monogram */}
+          <Link to="/" className="nav-brand-title">
+            <span>Agnik Dutta</span>
+            <span className="nav-brand-badge">CS / AI</span>
+          </Link>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
+          {/* Desktop Nav Links */}
+          <nav className="nav-links-wrap">
+            <Link
+              to="/project"
+              className={`nav-item-link ${location.pathname === "/project" ? "active" : ""}`}
+            >
+              Work
+            </Link>
+            <Link
+              to="/about"
+              className={`nav-item-link ${location.pathname === "/about" ? "active" : ""}`}
+            >
+              About
+            </Link>
+            <Link
+              to="/resume"
+              className={`nav-item-link ${location.pathname === "/resume" ? "active" : ""}`}
+            >
+              Resume
+            </Link>
+            <a
+              href="mailto:agnik.dutta07@gmail.com"
+              className="nav-cta-btn"
+            >
+              Get in Touch <FiArrowUpRight style={{ marginLeft: "3px", verticalAlign: "middle" }} />
+            </a>
+          </nav>
 
-            <Nav.Item>
-                <Nav.Link
-                  as={Link}
-                  to="/resume"
-                  onClick={() => updateExpanded(false)}
-                >
-
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/agnik07/portfolio"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
+          {/* Mobile Hamburger Button */}
+          <button
+            className={`mobile-toggle-btn ${mobileOpen ? "open" : ""}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </Container>
-    </Navbar>
+
+      {/* Mobile Drawer */}
+      <div className={`mobile-drawer ${mobileOpen ? "open" : ""}`}>
+        <Link
+          to="/"
+          className={`nav-item-link ${location.pathname === "/" ? "active" : ""}`}
+          onClick={() => setMobileOpen(false)}
+        >
+          Index
+        </Link>
+        <Link
+          to="/project"
+          className={`nav-item-link ${location.pathname === "/project" ? "active" : ""}`}
+          onClick={() => setMobileOpen(false)}
+        >
+          Selected Work
+        </Link>
+        <Link
+          to="/about"
+          className={`nav-item-link ${location.pathname === "/about" ? "active" : ""}`}
+          onClick={() => setMobileOpen(false)}
+        >
+          About & Toolkit
+        </Link>
+        <Link
+          to="/resume"
+          className={`nav-item-link ${location.pathname === "/resume" ? "active" : ""}`}
+          onClick={() => setMobileOpen(false)}
+        >
+          Curriculum Vitae
+        </Link>
+        <a
+          href="mailto:agnikdutta465@gmail.com"
+          className="btn-editorial-primary"
+          style={{ width: "100%", marginTop: "1rem" }}
+        >
+          Get In Touch →
+        </a>
+      </div>
+    </header>
   );
 }
 

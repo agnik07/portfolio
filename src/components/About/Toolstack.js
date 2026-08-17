@@ -1,28 +1,32 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import {
   SiVisualstudiocode,
   SiMysql,
   SiRstudio,
   SiMacos,
+  SiPostman,
+  SiVercel,
 } from "react-icons/si";
 
 function Toolstack() {
+  const tools = [
+    { name: "macOS", icon: <SiMacos /> },
+    { name: "VS Code", icon: <SiVisualstudiocode /> },
+    { name: "MySQL Workbench", icon: <SiMysql /> },
+    { name: "RStudio", icon: <SiRstudio /> },
+    { name: "Postman", icon: <SiPostman /> },
+    { name: "Vercel", icon: <SiVercel /> },
+  ];
+
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMacos />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMysql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiRstudio />
-      </Col>
-    </Row>
+    <div className="toolkit-items-wrap mt-3">
+      {tools.map((tool, idx) => (
+        <span key={idx} className="toolkit-chip">
+          {tool.icon}
+          <span>{tool.name}</span>
+        </span>
+      ))}
+    </div>
   );
 }
 
