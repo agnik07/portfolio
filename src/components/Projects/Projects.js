@@ -8,11 +8,39 @@ import skillgapai from "../../Assets/skillgapai.jpeg";
 import hrworkflow from "../../Assets/hrworkflow.png";
 import moodify from "../../Assets/moodify.png";
 import sepmagent from "../../Assets/sepmagent.png";
+import snapclass from "../../Assets/snapclass.png";
+import musicmate from "../../Assets/musicmate.png";
 
 function Projects() {
   const projectsData = [
     {
       id: "01",
+      title: "SnapClass",
+      headline: "Real-Time Local Commerce & Distributed Inventory Platform",
+      description:
+        "A real time face and audio captured attendance tracker",
+      techStack: ["streamlit", "supabase", "Fast APIs"],
+      role: "Full-Stack Architecture & ALML Engineer",
+      img: snapclass,
+      ghLink: "https://github.com/nilancy04/DigitalLocalShop",
+      demoLink: "https://snapclass-main-agnik.streamlit.app/",
+      reverse: false,
+    },
+    {
+      id: "02",
+      title: "MusicMate",
+      headline: "A social media platform for music lovers",
+      description:
+        "A social media platform for music lovers where people can find people based on their music taste.",
+      techStack: ["react", "node", "supabase", "aiml", "socketio"],
+      role: "Full-Stack Architecture & ALML Engineer",
+      img: musicmate,
+      ghLink: "https://github.com/agnik07/MusicMate",
+      demoLink: "https://musicmate-2okq.onrender.com/",
+      reverse: true,
+    },
+    {
+      id: "03",
       title: "Digital Local Shop",
       headline: "Real-Time Local Commerce & Distributed Inventory Platform",
       description:
@@ -25,7 +53,7 @@ function Projects() {
       reverse: false,
     },
     {
-      id: "02",
+      id: "04",
       title: "SkillGapAI",
       headline: "AI-Powered Resume Analysis & Skill Discrepancy Platform",
       description:
@@ -38,7 +66,7 @@ function Projects() {
       reverse: true,
     },
     {
-      id: "03",
+      id: "05",
       title: "HR Workflow Designer",
       headline: "Enterprise Human Resource Automation & Lifecycle Platform",
       description:
@@ -51,7 +79,7 @@ function Projects() {
       reverse: false,
     },
     {
-      id: "04",
+      id: "06",
       title: "Moodify",
       headline: "Emotion-Driven Multimedia Recommendation Engine",
       description:
@@ -64,7 +92,7 @@ function Projects() {
       reverse: true,
     },
     {
-      id: "05",
+      id: "07",
       title: "Software Engineering AI Agent",
       headline: "Hybrid Domain-Classified Technical Intelligence System",
       description:
@@ -77,7 +105,7 @@ function Projects() {
       reverse: false,
     },
     {
-      id: "06",
+      id: "08",
       title: "Airline Management System",
       headline: "Enterprise Flight Dispatch, Booking & Logistics Architecture",
       description:
