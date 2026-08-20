@@ -222,12 +222,6 @@ button:focus, a:focus {
   color: var(--text-primary);
 }
 
-.editorial-subheading {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 640px;
-}
 
 .editorial-badge {
   display: inline-flex;
