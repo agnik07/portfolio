@@ -10,7 +10,7 @@ import {
   FiLayers
 } from "react-icons/fi";
 
-import airlineManagementSystem from "../../Assets/Projects/Airline_Management_System.png";
+import airlineManagementSystem from "../../Assets/Airline_Management_System.png";
 import digitalLocalShop from "../../Assets/DigitalLocalShop.png";
 import skillgapai from "../../Assets/skillgapai.jpeg";
 import hrworkflow from "../../Assets/hrworkflow.png";
@@ -18,6 +18,8 @@ import moodify from "../../Assets/moodify.png";
 import sepmagent from "../../Assets/sepmagent.png";
 import snapclass from "../../Assets/snapclass.png";
 import musicmate from "../../Assets/musicmate.png";
+import gym_coach from "../../Assets/gym_coach.png";
+
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -33,25 +35,32 @@ function Projects() {
   const projectsData = [
     {
       id: "01",
-      title: "SnapClass",
-      headline: "Real-Time Local Commerce & Distributed Inventory Platform",
+      title: "SkillGap AI",
+      headline: "Unified AI-Powered Recruitment & Career Intelligence Platform",
       description:
-        "A real time face and audio captured attendance tracker",
-      techStack: ["streamlit", "supabase", "Fast APIs"],
-      role: "Full-Stack Architecture & ALML Engineer",
-      img: snapclass,
-      ghLink: "https://github.com/nilancy04/DigitalLocalShop",
-      demoLink: "https://snapclass-main-agnik.streamlit.app/",
+        "An enterprise-grade recruitment and career acceleration platform featuring a 100% deterministic ATS scoring engine, single-source resume parsing pipeline, skill gap analysis, and Groq LLM-powered feedback.",
+      techStack: [
+        "Python",
+        "FastAPI",
+        "Groq LLM",
+        "PyTorch",
+        "Supabase",
+        "React.js",
+      ],
+      role: "Full-Stack Architecture & Lead AI Engineer",
+      img: skillgapai,
+      ghLink: "https://github.com/agnik07/Skill-Booster-AI",
+      demoLink: null,
       reverse: false,
     },
     {
       id: "02",
       title: "MusicMate",
-      headline: "A social media platform for music lovers",
+      headline: "Real-Time Music Taste Matching & Social Discovery Platform",
       description:
-        "A social media platform for music lovers where people can find people based on their music taste.",
-      techStack: ["react", "node", "supabase", "aiml", "socketio"],
-      role: "Full-Stack Architecture & ALML Engineer",
+        "A social media platform for music lovers where users discover matching peers based on their music taste, exchange real-time messages via Socket.io, and explore personalized audio recommendations.",
+      techStack: ["React.js", "Node.js", "Express", "Supabase", "Socket.IO", "Web Audio API"],
+      role: "Full-Stack Architecture & Real-Time Engineering",
       img: musicmate,
       ghLink: "https://github.com/agnik07/MusicMate",
       demoLink: "https://musicmate-2okq.onrender.com/",
@@ -59,57 +68,27 @@ function Projects() {
     },
     {
       id: "03",
-      title: "Digital Local Shop",
-      headline: "Real-Time Local Commerce & Distributed Inventory Platform",
+      title: "AI Real Time Gym Coach",
+      headline: "Live Pose Tracking & Proactive AI Voice Workout Coach",
       description:
-        "Bridges physical neighborhood retail with modern digital commerce by providing real-time store inventory feeds, dynamic price comparisons, and community-verified ratings to make local shopping transparent and efficient.",
-      techStack: ["React.js", "MySQL", "Node.js", "REST APIs", "JavaScript"],
-      role: "Full-Stack Architecture & Database Design",
-      img: digitalLocalShop,
-      ghLink: "https://github.com/nilancy04/DigitalLocalShop",
-      demoLink: null,
+        "An interactive computer vision system tracking exercise form via live webcam using MediaPipe, analyzing biomechanical angles, and generating dynamic Llama-3 voice coaching cues in real time.",
+      techStack: [
+        "Python",
+        "Streamlit",
+        "MediaPipe",
+        "OpenCV",
+        "Groq Llama 3",
+        "gTTS",
+        "SQLite",
+      ],
+      role: "Computer Vision & AI Coaching Engine Design",
+      img: gym_coach,
+      ghLink: "https://github.com/agnik07/AI-Real-Time-Gym-Coach",
+      demoLink: "https://ai-real-time-gym-coach-agnik.streamlit.app/",
       reverse: false,
     },
     {
       id: "04",
-      title: "SkillGapAI",
-      headline: "AI-Powered Resume Analysis & Skill Discrepancy Platform",
-      description:
-        "An intelligent career intelligence platform that parses professional resumes, performs semantic skill-gap detection against real-time job specifications, and generates personalized roadmap recommendations for engineers.",
-      techStack: [
-        "Python",
-        "NLP / Tokenization",
-        "Scikit-Learn",
-        "Streamlit",
-        "Machine Learning",
-      ],
-      role: "Machine Learning Pipeline & Semantic Parsing",
-      img: skillgapai,
-      ghLink: "https://github.com/agnik07/Skill-Booster-AI",
-      demoLink: null,
-      reverse: true,
-    },
-    {
-      id: "05",
-      title: "HR Workflow Designer",
-      headline: "Enterprise Human Resource Automation & Lifecycle Platform",
-      description:
-        "A streamlined human resource operations management platform designed to automate employee recruitment pipelines, structured onboarding workflows, leave allocations, and centralized personnel record systems.",
-      techStack: [
-        "React.js",
-        "Tailwind CSS",
-        "JavaScript",
-        "Vercel Cloud",
-        "Workflow Automation",
-      ],
-      role: "Frontend Architecture & Workflow State Management",
-      img: hrworkflow,
-      ghLink: "https://github.com/agnik07/HR-Workflow-Designer",
-      demoLink: "https://hr-workflow-designer-beige.vercel.app/",
-      reverse: false,
-    },
-    {
-      id: "06",
       title: "Moodify",
       headline: "Emotion-Driven Multimedia Recommendation Engine",
       description:
@@ -126,6 +105,32 @@ function Projects() {
       ghLink:
         "https://github.com/agnik07/moodify-an-emotion-based-recommendation-system",
       demoLink: null,
+      reverse: true,
+    },
+    {
+      id: "05",
+      title: "Digital Local Shop",
+      headline: "Real-Time Local Commerce & Distributed Inventory Platform",
+      description:
+        "Bridges physical neighborhood retail with modern digital commerce by providing real-time store inventory feeds, dynamic price comparisons, and community-verified ratings to make local shopping transparent and efficient.",
+      techStack: ["React.js", "MySQL", "Node.js", "REST APIs", "JavaScript"],
+      role: "Full-Stack Architecture & Database Design",
+      img: digitalLocalShop,
+      ghLink: "https://github.com/nilancy04/DigitalLocalShop",
+      demoLink: null,
+      reverse: false,
+    },
+    {
+      id: "06",
+      title: "SnapClass",
+      headline: "Real-Time Automated Attendance & Biometric Recognition Platform",
+      description:
+        "A real-time face and audio captured attendance tracking application automating classroom sign-ins and storing verification logs securely on cloud infrastructure.",
+      techStack: ["Streamlit", "Supabase", "FastAPI", "OpenCV", "Python"],
+      role: "Full-Stack Architecture & AI Engineer",
+      img: snapclass,
+      ghLink: "https://github.com/nilancy04/DigitalLocalShop",
+      demoLink: "https://snapclass-main-agnik.streamlit.app/",
       reverse: true,
     },
     {
@@ -150,6 +155,25 @@ function Projects() {
     },
     {
       id: "08",
+      title: "HR Workflow Designer",
+      headline: "Enterprise Human Resource Automation & Lifecycle Platform",
+      description:
+        "A streamlined human resource operations management platform designed to automate employee recruitment pipelines, structured onboarding workflows, leave allocations, and centralized personnel record systems.",
+      techStack: [
+        "React.js",
+        "Tailwind CSS",
+        "JavaScript",
+        "Vercel Cloud",
+        "Workflow Automation",
+      ],
+      role: "Frontend Architecture & Workflow State Management",
+      img: hrworkflow,
+      ghLink: "https://github.com/agnik07/HR-Workflow-Designer",
+      demoLink: "https://hr-workflow-designer-beige.vercel.app/",
+      reverse: true,
+    },
+    {
+      id: "09",
       title: "Airline Management System",
       headline: "Enterprise Flight Dispatch, Booking & Logistics Architecture",
       description:
@@ -164,7 +188,7 @@ function Projects() {
       img: airlineManagementSystem,
       ghLink: "https://github.com/agnik07/Airline-Management-System",
       demoLink: null,
-      reverse: true,
+      reverse: false,
     },
   ];
 
@@ -329,9 +353,8 @@ function Projects() {
         {projectsData.map((project) => (
           <article
             key={project.id}
-            className={`project-editorial-row ${
-              project.reverse ? "reverse" : ""
-            }`}
+            className={`project-editorial-row ${project.reverse ? "reverse" : ""
+              }`}
           >
             {/* Visual Column */}
             <div className="project-img-container">
@@ -438,9 +461,8 @@ function Projects() {
             {categories.map((cat, idx) => (
               <button
                 key={idx}
-                className={`filter-chip-btn ${
-                  activeFilter === cat ? "active" : ""
-                }`}
+                className={`filter-chip-btn ${activeFilter === cat ? "active" : ""
+                  }`}
                 onClick={() => setActiveFilter(cat)}
               >
                 {cat}

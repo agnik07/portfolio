@@ -12,7 +12,7 @@ function Footer() {
       <section className="editorial-cta-section" id="contact">
         <Container>
           <div className="section-num">04 // INITIATE DIALOGUE</div>
-          
+
           <h2 className="cta-editorial-headline">
             Let's build something <span style={{ fontStyle: "italic", color: "var(--accent-burgundy-light)" }}>meaningful</span>.
           </h2>
@@ -23,10 +23,10 @@ function Footer() {
 
           <div className="cta-social-links">
             <a
-              href="mailto:agnik.dutta07@gmail.com"
+              href="mailto:agnikdutta465.com"
               className="btn-editorial-primary"
             >
-              <FiMail /> agnik.dutta07@gmail.com
+              <FiMail /> agnikdutta465@gmail.com
             </a>
 
             <a

@@ -64,7 +64,7 @@ function NavBar() {
               Resume
             </Link>
             <a
-              href="mailto:agnik.dutta07@gmail.com"
+              href="mailto:agnikdutta465@gmail.com"
               className="nav-cta-btn"
             >
               Get in Touch <FiArrowUpRight style={{ marginLeft: "3px", verticalAlign: "middle" }} />
@@ -122,7 +122,7 @@ function NavBar() {
           Curriculum Vitae
         </Link>
         <a
-          href="mailto:agnik.dutta07@gmail.com"
+          href="mailto:agnikdutta465@gmail.com"
           className="btn-editorial-primary"
           style={{ width: "100%", marginTop: "1rem" }}
         >
