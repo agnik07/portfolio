@@ -71,8 +71,9 @@ function Footer() {
             </Col>
 
             <Col md={4} xs={12}>
-              <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
+              <div style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap" }}>
                 <Link to="/" style={{ color: "var(--text-secondary)" }}>Index</Link>
+                <Link to="/achievements" style={{ color: "var(--text-secondary)" }}>Achievements</Link>
                 <Link to="/project" style={{ color: "var(--text-secondary)" }}>Work</Link>
                 <Link to="/about" style={{ color: "var(--text-secondary)" }}>About</Link>
                 <Link to="/resume" style={{ color: "var(--text-secondary)" }}>Resume</Link>

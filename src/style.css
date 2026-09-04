@@ -1349,3 +1349,325 @@ button:focus, a:focus {
     height: 550px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Achievements & Research Styles
+   -------------------------------------------------------------------------- */
+.editorial-achievement-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 2.25rem;
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+
+.editorial-achievement-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 8px 30px rgba(160, 60, 90, 0.12);
+  transform: translateY(-2px);
+}
+
+.achievement-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge-accent {
+  background-color: var(--accent-burgundy-dim);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-burgundy-light);
+}
+
+.achievement-meta-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.achievement-code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-burgundy-light);
+  letter-spacing: 0.05em;
+}
+
+.achievement-title {
+  font-family: var(--font-sans);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.achievement-abstract {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Hackathon Cards */
+.editorial-hackathon-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.editorial-hackathon-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 8px 24px rgba(160, 60, 90, 0.12);
+  transform: translateY(-3px);
+}
+
+.hackathon-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.hackathon-badge {
+  background-color: var(--accent-burgundy-dim);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-burgundy-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hackathon-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.hackathon-event-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.hackathon-subname {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.hackathon-project-box {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.hackathon-project-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.hackathon-project-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* Honor Cards */
+.editorial-honor-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem;
+  border-radius: 12px;
+  height: 100%;
+  transition: var(--transition-smooth);
+}
+
+.editorial-honor-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.honor-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--accent-burgundy-dim);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-burgundy-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.honor-category {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.honor-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.honor-issuer {
+  font-size: 0.82rem;
+  color: var(--accent-burgundy-light);
+  margin-bottom: 0.75rem;
+}
+
+.honor-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Mini Projects Styles
+   -------------------------------------------------------------------------- */
+.mini-project-filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+}
+
+.filter-label {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.filter-chips-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: var(--transition-snappy);
+  cursor: pointer;
+}
+
+.filter-chip-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.filter-chip-btn.active {
+  background-color: var(--accent-burgundy);
+  color: #ffffff;
+  border-color: var(--accent-burgundy);
+  box-shadow: 0 4px 14px rgba(160, 60, 90, 0.25);
+}
+
+.editorial-mini-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.editorial-mini-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 8px 24px rgba(160, 60, 90, 0.12);
+  transform: translateY(-3px);
+}
+
+.mini-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-project-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.mini-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.mini-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.mini-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.mini-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.feature-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-burgundy-light);
+  flex-shrink: 0;
+}
+
+.border-top-subtle {
+  border-top: 1px solid var(--border-subtle) !important;
+}
+

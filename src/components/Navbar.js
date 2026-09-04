@@ -40,6 +40,12 @@ function NavBar() {
           {/* Desktop Nav Links */}
           <nav className="nav-links-wrap">
             <Link
+              to="/achievements"
+              className={`nav-item-link ${location.pathname === "/achievements" ? "active" : ""}`}
+            >
+              Achievements
+            </Link>
+            <Link
               to="/project"
               className={`nav-item-link ${location.pathname === "/project" ? "active" : ""}`}
             >
@@ -88,6 +94,13 @@ function NavBar() {
           Index
         </Link>
         <Link
+          to="/achievements"
+          className={`nav-item-link ${location.pathname === "/achievements" ? "active" : ""}`}
+          onClick={() => setMobileOpen(false)}
+        >
+          Achievements
+        </Link>
+        <Link
           to="/project"
           className={`nav-item-link ${location.pathname === "/project" ? "active" : ""}`}
           onClick={() => setMobileOpen(false)}
@@ -109,7 +122,7 @@ function NavBar() {
           Curriculum Vitae
         </Link>
         <a
-          href="mailto:agnikdutta465@gmail.com"
+          href="mailto:agnik.dutta07@gmail.com"
           className="btn-editorial-primary"
           style={{ width: "100%", marginTop: "1rem" }}
         >
