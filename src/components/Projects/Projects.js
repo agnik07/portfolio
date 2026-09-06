@@ -49,7 +49,7 @@ function Projects() {
       ],
       role: "Full-Stack Architecture & Lead AI Engineer",
       img: skillgapai,
-      ghLink: "https://github.com/agnik07/Skill-Booster-AI",
+      ghLink: "https://github.com/agnik07/ATS-Resume-Analyzer",
       demoLink: null,
       reverse: false,
     },
