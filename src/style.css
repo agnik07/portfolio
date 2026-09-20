@@ -1201,13 +1201,43 @@ button:focus, a:focus {
   line-height: 1.7;
 }
 
+.pdf-showcase-wrapper {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(160, 60, 90, 0.18);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.pdf-showcase-header {
+  padding: 0.85rem 1.25rem;
+  background-color: rgba(20, 20, 30, 0.7);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+}
+
+.pdf-showcase-title {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 .resume-iframe-container {
   width: 100%;
-  height: 850px;
-  border: 1px solid var(--border-medium);
-  border-radius: 2px;
-  background: var(--bg-surface);
-  margin-top: 2rem;
+  height: 1050px;
+  border: none;
+  background: #181824;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .resume-embed-frame {
