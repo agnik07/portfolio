@@ -19,6 +19,7 @@ import sepmagent from "../../Assets/sepmagent.png";
 import snapclass from "../../Assets/snapclass.png";
 import musicmate from "../../Assets/musicmate.png";
 import gym_coach from "../../Assets/gym_coach.png";
+import styleforgeai from "../../Assets/neural_style_transfer.png";
 
 
 function Projects() {
@@ -89,6 +90,27 @@ function Projects() {
     },
     {
       id: "04",
+      title: "StyleForge AI",
+      headline: "Real-Time Arbitrary Neural Style Transfer Platform",
+      description:
+        "A deep-learning-powered arbitrary neural style transfer system using Adaptive Instance Normalization (AdaIN) and pre-trained VGG-19 feature statistics, enabling sub-second real-time style synthesis served via an interactive Flask web application.",
+      techStack: [
+        "PyTorch",
+        "Python",
+        "Torchvision",
+        "VGG-19",
+        "AdaIN",
+        "Flask",
+        "Bootstrap 5",
+      ],
+      role: "Deep Learning Architecture & Full-Stack Web Development",
+      img: styleforgeai,
+      ghLink: "https://github.com/agnik07/Neural-Style-Transfer",
+      demoLink: null,
+      reverse: true,
+    },
+    {
+      id: "05",
       title: "Moodify",
       headline: "Emotion-Driven Multimedia Recommendation Engine",
       description:
@@ -105,10 +127,10 @@ function Projects() {
       ghLink:
         "https://github.com/agnik07/moodify-an-emotion-based-recommendation-system",
       demoLink: null,
-      reverse: true,
+      reverse: false,
     },
     {
-      id: "05",
+      id: "06",
       title: "Digital Local Shop",
       headline: "Real-Time Local Commerce & Distributed Inventory Platform",
       description:
@@ -118,10 +140,10 @@ function Projects() {
       img: digitalLocalShop,
       ghLink: "https://github.com/nilancy04/DigitalLocalShop",
       demoLink: null,
-      reverse: false,
+      reverse: true,
     },
     {
-      id: "06",
+      id: "07",
       title: "SnapClass",
       headline: "Real-Time Automated Attendance & Biometric Recognition Platform",
       description:
@@ -131,10 +153,10 @@ function Projects() {
       img: snapclass,
       ghLink: "https://github.com/nilancy04/DigitalLocalShop",
       demoLink: "https://snapclass-main-agnik.streamlit.app/",
-      reverse: true,
+      reverse: false,
     },
     {
-      id: "07",
+      id: "08",
       title: "Software Engineering AI Agent",
       headline: "Hybrid Domain-Classified Technical Intelligence System",
       description:
@@ -151,10 +173,10 @@ function Projects() {
       ghLink: "https://github.com/agnik07/Software_Engineering_ChatBot",
       demoLink:
         "https://softwareengineeringchatbot-ljmntbbpy6izdg2zurbtuw.streamlit.app/",
-      reverse: false,
+      reverse: true,
     },
     {
-      id: "08",
+      id: "09",
       title: "HR Workflow Designer",
       headline: "Enterprise Human Resource Automation & Lifecycle Platform",
       description:
@@ -170,10 +192,10 @@ function Projects() {
       img: hrworkflow,
       ghLink: "https://github.com/agnik07/HR-Workflow-Designer",
       demoLink: "https://hr-workflow-designer-beige.vercel.app/",
-      reverse: true,
+      reverse: false,
     },
     {
-      id: "09",
+      id: "10",
       title: "Airline Management System",
       headline: "Enterprise Flight Dispatch, Booking & Logistics Architecture",
       description:
@@ -188,7 +210,7 @@ function Projects() {
       img: airlineManagementSystem,
       ghLink: "https://github.com/agnik07/Airline-Management-System",
       demoLink: null,
-      reverse: false,
+      reverse: true,
     },
   ];
 
