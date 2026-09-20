@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   FiAward,
@@ -11,9 +11,11 @@ import {
   FiChevronRight,
   FiImage,
   FiUsers,
-  FiFileText,
   FiFilter,
-  FiShield
+  FiShield,
+  FiZoomIn,
+  FiZoomOut,
+  FiX
 } from "react-icons/fi";
 
 import ieeeClick from "../../Assets/ieee_click.jpg";
@@ -33,7 +35,6 @@ import dsaNptelPdf from "../../Assets/certificates/DSA-NPTEL.pdf";
 import ibmMysqlPdf from "../../Assets/certificates/IBM MySQL and Data Science .pdf";
 import ieiCertPdf from "../../Assets/certificates/Iei certificate .pdf";
 import mlNptelPdf from "../../Assets/certificates/ML_NPTEL.pdf";
-import nptelDsaMlPdf from "../../Assets/certificates/NPTEL DSA & ML.pdf";
 import scalerDbmsPng from "../../Assets/certificates/SCALER  DBMS_1896.png";
 import level1CertPng from "../../Assets/certificates/level1_certificate.png";
 import oracleCertPdf from "../../Assets/certificates/oracle ecertificate.pdf";
@@ -44,6 +45,29 @@ import sih2025Pdf from "../../Assets/certificates/SIH 2025 Internal296.pdf";
 function Achievements() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeCertFilter, setActiveCertFilter] = useState("All");
+
+  const [selectedCert, setSelectedCert] = useState(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const openCertModal = (cert) => {
+    setSelectedCert(cert);
+    setIsZoomed(false);
+  };
+
+  const closeCertModal = () => {
+    setSelectedCert(null);
+    setIsZoomed(false);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        closeCertModal();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const researchPhotos = [
     {
@@ -240,19 +264,6 @@ function Achievements() {
 
     {
       id: "CERT-07",
-      title: "NPTEL Data Structures & ML Specialization",
-      issuer: "NPTEL & Ministry of Education",
-      category: "Machine Learning & AI",
-      type: "PDF Document",
-      date: "2024",
-      description:
-        "Rigorous academic credential covering advanced data structures, algorithmic complexity analysis, and machine learning pipelines.",
-      file: nptelDsaMlPdf,
-      badge: "NPTEL Specialization",
-    },
-
-    {
-      id: "CERT-08",
       title: "IBM MySQL & Data Science Professional Certification",
       issuer: "IBM & Coursera",
       category: "Machine Learning & AI",
@@ -265,7 +276,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-09",
+      id: "CERT-08",
       title: "NPTEL Data Structures & Algorithms in Java / C++",
       issuer: "NPTEL & IIT Kharagpur/Madras",
       category: "Data Structures & DB",
@@ -278,7 +289,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-10",
+      id: "CERT-09",
       title: "Scaler Database Management Systems (DBMS)",
       issuer: "Scaler Academy",
       category: "Data Structures & DB",
@@ -291,7 +302,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-11",
+      id: "CERT-10",
       title: "Oracle Cloud Infrastructure & Database Certification",
       issuer: "Oracle Corporation",
       category: "Data Structures & DB",
@@ -304,7 +315,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-12",
+      id: "CERT-11",
       title: "Cisco Database Security & Protection",
       issuer: "Cisco Networking Academy",
       category: "Data Structures & DB",
@@ -317,7 +328,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-13",
+      id: "CERT-12",
       title: "Cisco Networking Essentials & Architecture",
       issuer: "Cisco Networking Academy",
       category: "Networking & Security",
@@ -330,7 +341,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-14",
+      id: "CERT-13",
       title: "Institution of Engineers (India) Technical Certification",
       issuer: "The Institution of Engineers (India) - IEI",
       category: "Networking & Security",
@@ -343,7 +354,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-15",
+      id: "CERT-14",
       title: "Level 1 Problem Solving & Systems Certificate",
       issuer: "Technical Assessment Authority",
       category: "Networking & Security",
@@ -356,7 +367,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-16",
+      id: "CERT-15",
       title: "Apna College Full Stack & DSA Mastery",
       issuer: "Apna College",
       category: "Internships & Industry",
@@ -369,7 +380,7 @@ function Achievements() {
     },
 
     {
-      id: "CERT-17",
+      id: "CERT-16",
       title: "Aspire Leadership & Engineering Excellence",
       issuer: "Aspire Technical Foundation",
       category: "Internships & Industry",
@@ -581,6 +592,47 @@ function Achievements() {
                   <p className="hackathon-project-desc">{hack.description}</p>
                 </div>
 
+                {/* Inline Certificate Showcase Box */}
+                {hack.certLink && (
+                  <div
+                    className="cert-preview-box"
+                    onClick={() =>
+                      openCertModal({
+                        id: hack.id,
+                        title: hack.title,
+                        issuer: hack.event,
+                        badge: hack.achievement,
+                        file: hack.certLink,
+                        type: "Hackathon Certificate",
+                        date: hack.date,
+                      })
+                    }
+                    title="Click to Zoom In / Out"
+                  >
+                    {hack.certLink.toLowerCase().includes(".pdf") ? (
+                      <div className="cert-pdf-wrapper">
+                        <iframe
+                          src={`${hack.certLink}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                          title={hack.title}
+                          className="cert-preview-iframe"
+                          loading="lazy"
+                        />
+                        <div className="cert-preview-overlay-mask" />
+                      </div>
+                    ) : (
+                      <img
+                        src={hack.certLink}
+                        alt={hack.title}
+                        className="cert-preview-img"
+                        loading="lazy"
+                      />
+                    )}
+                    <div className="cert-zoom-hover-badge">
+                      <FiZoomIn style={{ marginRight: "4px" }} /> Click to Zoom
+                    </div>
+                  </div>
+                )}
+
                 <div className="project-tech-tags mb-3">
                   {hack.techStack.map((tech, idx) => (
                     <span key={idx} className="tech-tag">
@@ -590,20 +642,6 @@ function Achievements() {
                 </div>
 
                 <div className="d-flex align-items-center flex-wrap gap-3 mt-auto pt-2 border-top-subtle">
-                  {hack.certLink && (
-                    <a
-                      href={hack.certLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-editorial-link"
-                      style={{
-                        fontSize: "0.8rem",
-                        color: "var(--accent-burgundy-light)",
-                      }}
-                    >
-                      <FiFileText style={{ marginRight: "3px" }} /> Certificate
-                    </a>
-                  )}
                   {hack.repoLink && (
                     <a
                       href={hack.repoLink}
@@ -644,7 +682,7 @@ function Achievements() {
             </h2>
           </div>
           <span className="editorial-badge badge-accent">
-            <FiShield style={{ marginRight: "4px" }} /> 20 Verified Documents
+            <FiShield style={{ marginRight: "4px" }} /> {certificatesData.length + hackathonsData.length} Verified Documents
           </span>
         </div>
 
@@ -677,7 +715,9 @@ function Achievements() {
             <Col lg={4} md={6} key={cert.id}>
               <div className="editorial-cert-card">
                 <div className="cert-card-top">
-                  <span className="editorial-badge badge-accent">{cert.badge}</span>
+                  {cert.badge && (
+                    <span className="editorial-badge badge-accent">{cert.badge}</span>
+                  )}
                   <span className="mini-project-id">{cert.id}</span>
                 </div>
 
@@ -689,22 +729,142 @@ function Achievements() {
 
                 <p className="cert-desc">{cert.description}</p>
 
+                {/* Inline Certificate Showcase Box */}
+                <div
+                  className="cert-preview-box"
+                  onClick={() => openCertModal(cert)}
+                  title="Click to Zoom In / Out"
+                >
+                  {cert.file && cert.file.toLowerCase().includes(".pdf") ? (
+                    <div className="cert-pdf-wrapper">
+                      <iframe
+                        src={`${cert.file}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                        title={cert.title}
+                        className="cert-preview-iframe"
+                        loading="lazy"
+                      />
+                      <div className="cert-preview-overlay-mask" />
+                    </div>
+                  ) : (
+                    <img
+                      src={cert.file}
+                      alt={cert.title}
+                      className="cert-preview-img"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="cert-zoom-hover-badge">
+                    <FiZoomIn style={{ marginRight: "4px" }} /> Click to Zoom
+                  </div>
+                </div>
+
                 <div className="d-flex align-items-center justify-content-between mt-auto pt-3 border-top-subtle">
                   <span className="achievement-meta-text">{cert.type} · {cert.date}</span>
-                  <a
-                    href={cert.file}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-editorial-link"
-                    style={{ fontSize: "0.85rem", color: "var(--accent-burgundy-light)" }}
-                  >
-                    <FiFileText style={{ marginRight: "4px" }} /> View Proof <FiExternalLink style={{ fontSize: "0.75rem", marginLeft: "2px" }} />
-                  </a>
                 </div>
               </div>
             </Col>
           ))}
         </Row>
+
+        {/* ----------------- INTERACTIVE CERTIFICATE ZOOM MODAL ----------------- */}
+        {selectedCert && (
+          <div className="cert-modal-backdrop" onClick={closeCertModal}>
+            <div
+              className="cert-modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="cert-modal-header">
+                <div>
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    {selectedCert.badge && (
+                      <span className="editorial-badge badge-accent">
+                        {selectedCert.badge}
+                      </span>
+                    )}
+                    <span className="achievement-code">{selectedCert.id}</span>
+                  </div>
+                  <h3 className="cert-modal-title">{selectedCert.title}</h3>
+                  <div className="cert-modal-issuer">
+                    <FiCheckCircle style={{ color: "var(--accent-burgundy-light)", marginRight: "4px" }} />
+                    {selectedCert.issuer}
+                  </div>
+                </div>
+
+                <div className="d-flex align-items-center gap-2 flex-wrap">
+                  <button
+                    className={`btn-editorial-zoom ${isZoomed ? "active" : ""}`}
+                    onClick={() => setIsZoomed(!isZoomed)}
+                    title="Toggle Zoom Level (100% ⟷ 200%)"
+                  >
+                    {isZoomed ? (
+                      <>
+                        <FiZoomOut style={{ marginRight: "4px" }} /> Zoom Out (100%)
+                      </>
+                    ) : (
+                      <>
+                        <FiZoomIn style={{ marginRight: "4px" }} /> Zoom In (200%)
+                      </>
+                    )}
+                  </button>
+
+                  {selectedCert.file && (
+                    <a
+                      href={selectedCert.file}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-editorial-link"
+                      style={{ fontSize: "0.82rem", padding: "6px 12px" }}
+                    >
+                      <FiExternalLink style={{ marginRight: "4px" }} /> Open Source PDF
+                    </a>
+                  )}
+
+                  <button className="cert-modal-close-btn" onClick={closeCertModal} aria-label="Close">
+                    <FiX />
+                  </button>
+                </div>
+              </div>
+
+              {/* Modal Body / Stage */}
+              <div className="cert-modal-body">
+                <div
+                  className={`cert-zoom-stage ${isZoomed ? "zoomed" : ""}`}
+                  onClick={() => setIsZoomed(!isZoomed)}
+                  title={isZoomed ? "Click image to Zoom Out" : "Click image to Zoom In"}
+                >
+                  {selectedCert.file && selectedCert.file.toLowerCase().includes(".pdf") ? (
+                    <iframe
+                      src={`${selectedCert.file}#toolbar=0&navpanes=0&scrollbar=1&view=Fit`}
+                      title={selectedCert.title}
+                      className={`cert-modal-iframe ${isZoomed ? "zoomed" : ""}`}
+                    />
+                  ) : (
+                    <img
+                      src={selectedCert.file}
+                      alt={selectedCert.title}
+                      className={`cert-modal-img ${isZoomed ? "zoomed" : ""}`}
+                    />
+                  )}
+
+                  <div className="cert-modal-zoom-hint">
+                    {isZoomed ? <FiZoomOut /> : <FiZoomIn />} {isZoomed ? "Click image to Zoom Out" : "Click image to Zoom In"}
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="cert-modal-footer">
+                <span className="achievement-meta-text">
+                  {selectedCert.type} · {selectedCert.date}
+                </span>
+                <span className="cert-modal-tip">
+                  💡 Click directly on the document above to toggle zoom level (100% ⟷ 200%)
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
       </Container>
     </main>
   );
